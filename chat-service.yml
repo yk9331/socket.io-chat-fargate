@@ -140,7 +140,7 @@ Resources:
       HealthCheckIntervalSeconds: 6
       HealthCheckPath: /
       Matcher:
-        HttpCode: 301
+        HttpCode: 200
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 5
       HealthyThresholdCount: 2
@@ -284,10 +284,10 @@ Resources:
       Statistic: Average
       Period: 60
       EvaluationPeriods: 1
-      Threshold: 1
+      Threshold: 20
       ComparisonOperator: LessThanOrEqualToThreshold
-      # AlarmActions:
-        # - !Ref ScaleDownPolicy
+      AlarmActions:
+        - !Ref ScaleDownPolicy
 
   HighCpuUsageAlarm:
     Type: AWS::CloudWatch::Alarm
