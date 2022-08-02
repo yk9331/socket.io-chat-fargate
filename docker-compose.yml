@@ -5,7 +5,7 @@ networks:
 services:
   # Launch the Redis used for syncing messages between copies of the client app
   redis:
-    image: redis
+    image: public.ecr.aws/ubuntu/redis:latest
     networks:
       - chat
     ports:
